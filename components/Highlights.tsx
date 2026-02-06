@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Baby, Heart, Sparkles, Clock } from "lucide-react";
+import { Baby, Heart, Sparkles } from "lucide-react";
 
 const mainItems = [
   { 

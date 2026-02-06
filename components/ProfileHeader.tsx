@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Instagram, ArrowUpRight } from "lucide-react";
+import Image from "next/image"; // Importação necessária
 
 const instagramPosts = [
   { 
@@ -32,7 +33,8 @@ export function ProfileHeader() {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-3 mb-6"
           >
-            <span className="w-12 h-[2px] bg-[#FF4122]" />
+            {/* Corrigido para h-0.5 conforme sugestão */}
+            <span className="w-12 h-0.5 bg-[#FF4122]" />
             <span className="text-zinc-400 font-black text-[10px] uppercase tracking-[0.4em]">IBAG Cachoeirinha // RS</span>
           </motion.div>
 
@@ -66,7 +68,7 @@ export function ProfileHeader() {
           </div>
         </div>
 
-        {/* GRID ESTILO FEED INSTAGRAM (PROPORÇÃO 4:5 - RETRATO) */}
+        {/* GRID ESTILO FEED INSTAGRAM */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {instagramPosts.map((post, i) => (
             <motion.a
@@ -79,14 +81,18 @@ export function ProfileHeader() {
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 0.99 }}
-              className="relative block w-full aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-zinc-50 group border border-zinc-100 shadow-sm"
+              // Corrigido aspect-4/5 e rounded-3xl
+              className="relative block w-full aspect-4/5 overflow-hidden rounded-3xl bg-zinc-50 group border border-zinc-100 shadow-sm"
             >
               <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
               
-              <img 
+              {/* Substituído img por Image do Next.js */}
+              <Image 
                 src={post.img} 
                 alt="Post Instagram IBAG" 
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-all duration-700 group-hover:scale-105"
               />
               
               <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
