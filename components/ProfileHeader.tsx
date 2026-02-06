@@ -36,8 +36,8 @@ export function ProfileHeader() {
                 whileInView={{ opacity: 1 }}
                 className="text-6xl md:text-8xl font-black text-zinc-900 uppercase tracking-tighter leading-none"
               >
-                Aberto <br />
-                <span className="text-[#FF4122]">para todos.</span>
+                Bem-Vindos <br />
+                <span className="text-[#FF4122]">à casa.</span>
               </motion.h2>
               <p className="mt-6 text-zinc-400 text-lg md:text-xl font-medium max-w-md">
                 Venha nos conhecer.

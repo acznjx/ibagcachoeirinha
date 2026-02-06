@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react"; 
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image"; // Importante para otimização de imagens
+import Image from "next/image";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +26,10 @@ export function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo - Identidade IBAG Atualizada */}
         <div className="flex items-center gap-4 group cursor-pointer">
-          <div className="relative w-12 h-12 transition-transform group-hover:rotate-3">
+          <div className="relative w-10 h-10 transition-transform group-hover:rotate-3">
             <Image 
-              src="/logo.png" // Certifique-se que o nome do arquivo na pasta public é exatamente este
+              src="/Logo.png" 
               alt="IBAG Logo"
               fill
               className="object-contain"
@@ -39,11 +38,10 @@ export function Navbar() {
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-zinc-900 font-black text-sm uppercase tracking-wider">Cachoeirinha</span>
-            <span className="text-[#FF4122] text-[10px] font-bold uppercase tracking-[0.2em]">Igreja Batista Amor e Graça</span>
+            <span className="text-[#FF4122] text-[10px] font-bold uppercase tracking-[0.2em]">Igreja Batista Amor e Graça</span>
           </div>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
           <div className="flex gap-8">
             {navLinks.map((link) => (
@@ -69,7 +67,6 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
         <button 
           className="md:hidden p-2 text-zinc-900 hover:bg-zinc-100 transition-colors" 
           onClick={() => setIsOpen(true)}
@@ -79,7 +76,6 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
@@ -92,7 +88,7 @@ export function Navbar() {
             <div className="flex justify-between items-center border-b border-zinc-100 pb-8">
               <div className="flex items-center gap-3">
                 <div className="relative w-8 h-8">
-                  <Image src="/logo.png" alt="IBAG" fill className="object-contain" />
+                  <Image src="/Logo.png" alt="IBAG" fill className="object-contain" />
                 </div>
                 <span className="text-zinc-900 font-black tracking-tighter text-xl uppercase">Menu</span>
               </div>
